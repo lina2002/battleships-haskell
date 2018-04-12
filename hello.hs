@@ -1,5 +1,5 @@
 readCoordinates :: IO [Int]
-readCoordinates = fmap (map read) (fmap words getLine)
+readCoordinates = fmap ((map read).words) getLine
 
 main =  do
   putStrLn "Let's play batlleships!"
