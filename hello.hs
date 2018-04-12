@@ -1,7 +1,11 @@
 data Coordinates = Coordinates Int Int
+  deriving (Show, Eq)
 
-readCoordinates :: IO [Int]
-readCoordinates = fmap ((map read).words) getLine
+convert :: [Int] -> Coordinates
+convert (x:y:xs) = Coordinates x y 
+
+readCoordinates :: IO Coordinates
+readCoordinates = fmap (convert.(map read).words) getLine
 
 canBePlaced :: Int -> [Int] -> Bool
 canBePlaced boardSize ship = True
